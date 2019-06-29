@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createUser } from '../../redux/actionCreators';
 
 class SignUpPage extends Component {
   state = {
@@ -14,13 +16,15 @@ class SignUpPage extends Component {
     })
   }
 
-  handleCreateUser() {
+  handleCreateUser = () => {
     console.log('attempting to create new user')
+    // debugger
+    this.props.createUser(this.state)
   }
 
   render() {
     return(
-      <form method="post" className="sign-up-form" onSubmit={this.handleCreateUser}>
+      <form className="sign-up-form" onSubmit={this.handleCreateUser}>
         <label>
           First Name:
           <input type="text" name="first_name" placeholder="First name" onChange={this.handleChange} required />
@@ -43,4 +47,10 @@ class SignUpPage extends Component {
   }
 }
 
-export default SignUpPage;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createUser: (newUserData) => { dispatch(createUser(newUserData)) },
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SignUpPage);
