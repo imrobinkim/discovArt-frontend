@@ -1,8 +1,22 @@
 const BASE_URL = "http://localhost:3000/api/v1"
 
+function setUserUsingToken(token) {
+  return (dispatch) => {
+    fetch(`${BASE_URL}/profile`, {
+      method: "GET",
+      headers: {
+        "Authentication": `Bearer ${token}`
+      }
+    }).then(res => res.json())
+    .then(returnedData => {
+      console.log('Logged In:', returnedData.user.first_name)
+      dispatch(setCurrentUser(returnedData.user))
+    })
+  }
+}
+
 function createUser(newUserData) {
   return (dispatch) => {
-    debugger
     fetch(`${BASE_URL}/users`, {
       method: "POST",
       headers: {
@@ -18,18 +32,18 @@ function createUser(newUserData) {
         }
       })
     }).then(res => res.json())
-    .then(response => {
-      console.log(response)
-      dispatch(setCurrentUser(response))
+    .then(returnedData => {
+      localStorage.setItem('token', returnedData['token'])
+      dispatch(setCurrentUser(returnedData['user']))
     })
   }
 }
 
-function setCurrentUser(response) {
-  return { type: "SET_CURRENT_USER", payload: response['user']} 
+function setCurrentUser(userData) {
+  return { type: "SET_CURRENT_USER", payload: userData} 
 }
 
 export {
   createUser,
-
+  setUserUsingToken
 };

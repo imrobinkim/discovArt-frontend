@@ -5,8 +5,16 @@ import { connect } from 'react-redux';
 import NavBar from './containers/NavBar';
 import MainPage from './containers/MainPage';
 import SignUpPage from './components/SignUpPage';
+import { setUserUsingToken } from './redux/actionCreators';
 
 class App extends Component {
+  componentDidMount() {
+    let token = localStorage.getItem('token');
+    if (token) {
+      this.props.setUserUsingToken(token)
+    }
+  }
+
   render() {
     return (
       <Fragment>
@@ -20,4 +28,10 @@ class App extends Component {
   }
 }
 
-export default withRouter(connect()(App));
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUserUsingToken: (token) => { dispatch(setUserUsingToken(token)) },
+  }
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(App));
