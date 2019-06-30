@@ -39,11 +39,34 @@ function createUser(newUserData) {
   }
 }
 
+function logInUser(logInData) {
+  return (dispatch) => {
+    fetch(`${BASE_URL}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        user: {
+          email: logInData.email,
+          password: logInData.password
+        }
+      })
+    }).then(res => res.json())
+    .then(returnedData => {
+      localStorage.setItem('token', returnedData['token'])
+      dispatch(setCurrentUser(returnedData['user']))
+    })
+  }
+}
+
 function setCurrentUser(userData) {
   return { type: "SET_CURRENT_USER", payload: userData} 
 }
 
 export {
+  setUserUsingToken,
   createUser,
-  setUserUsingToken
+  logInUser
 };

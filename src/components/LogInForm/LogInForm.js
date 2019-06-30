@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { logInUser } from '../../redux/actionCreators';
 
 class LogInForm extends Component {
   state = {
@@ -12,20 +14,21 @@ class LogInForm extends Component {
     })
   }
 
-  handleCreateUser() {
-    console.log('attempting to log in')
+  handleLogIn = (e) => {
+    e.preventDefault();
+    this.props.logInUser(this.state)
   }
 
   render() {
     return (
-      <form method="post" className="sign-up-form" onSubmit={this.handleCreateUser}>
+      <form className="sign-up-form" onSubmit={this.handleLogIn}>
         <label>
           Email:
           <input type="text" name="email" placeholder="Email" onChange={this.handleChange} required />
         </label>
         <label>
           Password:
-          <input type="text" name="password" placeholder="Password" onChange={this.handleChange} required />
+          <input type="password" name="password" placeholder="Password" onChange={this.handleChange} required />
         </label>
         <input type="submit" value="Log In" />
       </form>
@@ -33,4 +36,10 @@ class LogInForm extends Component {
   }
 }
 
-export default LogInForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logInUser: (logInData) => { dispatch(logInUser(logInData)) }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(LogInForm);

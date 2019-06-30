@@ -40,7 +40,7 @@ class SignUpPage extends Component {
         </label>
         <label>
           Password:
-          <input type="text" name="password" placeholder="Password" onChange={this.handleChange} required />
+          <input type="password" name="password" placeholder="Password" onChange={this.handleChange} required />
         </label>
         <input type="submit" value="Submit" />
       </form>
