@@ -1,0 +1,24 @@
+input {
+  appearance: none;
+  border-radius: 100px;
+  background-color: transparent;
+  border: .5px solid #D6CFC5;
+  font-size: 17px;
+  padding: 10px 15px;
+  font-weight: 100;
+}
+
+input {
+  display: block;
+  color: #D6CFC5;
+}
+
+input:focus {
+    outline:none;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #D6CFC5;
+  color: #242224;
+}

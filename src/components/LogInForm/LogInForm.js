@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logInUser } from '../../redux/actionCreators';
+import './LogInForm.css';
 
 class LogInForm extends Component {
   state = {
@@ -23,11 +24,11 @@ class LogInForm extends Component {
     return (
       <form className="sign-up-form" onSubmit={this.handleLogIn}>
         <label>
-          Email:
+          Email 
           <input type="text" name="email" placeholder="Email" onChange={this.handleChange} required />
         </label>
         <label>
-          Password:
+          Password 
           <input type="password" name="password" placeholder="Password" onChange={this.handleChange} required />
         </label>
         <input type="submit" value="Log In" />

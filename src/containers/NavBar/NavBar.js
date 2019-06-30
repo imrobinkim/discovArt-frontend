@@ -6,9 +6,9 @@ import './NavBar.css';
 class NavBar extends Component {
   render() {
     return (
-      <div class="navbar">
+      <div className="navbar">
         <NavLink to="/" className="navbar-logo">dA</NavLink>
-        <div class="navbar-list">
+        <div className="navbar-list">
           <NavLink to="/search" activeClassName="current">Collection</NavLink>
           <NavLink to="/map" activeClassName="current">Map</NavLink>
           <NavLink to="/login" activeClassName="current">Log In</NavLink>
