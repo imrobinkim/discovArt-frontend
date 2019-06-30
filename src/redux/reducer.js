@@ -10,7 +10,7 @@ const currentUserReducer = (oldState = null, action) => {
   }
 }
 
-const artworksReducer = (oldState = [], action) => {
+const artworksListReducer = (oldState = [], action) => {
   switch (action.type) {
     case "FETCHED_INITIAL_ARTWORKS":
       return action.artworks
@@ -20,10 +20,20 @@ const artworksReducer = (oldState = [], action) => {
   }
 }
 
+const currentArtworkToShowReducer = (oldState = null, action) => {
+  switch (action.type) {
+    case "FETCH_ARTWORK":
+      return action.artwork 
+      
+    default:
+      return oldState
+  }
+}
+
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
-  artworks: artworksReducer,
-
+  artworks: artworksListReducer,
+  currentArtwork: currentArtworkToShowReducer
 })
 
 export default rootReducer;

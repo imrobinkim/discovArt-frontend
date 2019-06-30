@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logInUser } from '../../redux/actionCreators';
-import './LogInForm.css';
+import { logInUser } from '../redux/actionCreators';
 
 class LogInForm extends Component {
   state = {
@@ -22,7 +21,7 @@ class LogInForm extends Component {
 
   render() {
     return (
-      <form className="sign-up-form" onSubmit={this.handleLogIn}>
+      <form className="login-form" onSubmit={this.handleLogIn}>
         <label>
           Email 
           <input type="text" name="email" placeholder="Email" onChange={this.handleChange} required />

@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchingInitialArtworks } from '../../redux/actionCreators';
-import SearchForm from '../../components/SearchForm';
-import ArtworksList from '../ArtworksList';
+import { fetchingInitialArtworks } from '../redux/actionCreators';
+import SearchForm from '../components/SearchForm';
+import ArtworksList from './ArtworksList';
 
 class CollectionPage extends Component {
   componentDidMount() {

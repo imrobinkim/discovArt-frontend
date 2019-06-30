@@ -79,9 +79,25 @@ function fetchingInitialArtworks() {
   }
 }
 
+function fetchedArtworkDetail(artworkObj) {
+  return { type: "FETCH_ARTWORK", artwork: artworkObj }
+}
+
+function fetchingArtworkDetail(artworkId) {
+  return (dispatch) => {
+    fetch(`${BASE_URL}/artworks/${artworkId}`)
+      .then(res => res.json())
+      .then(response => {
+        const artworkObj = response.Data
+        dispatch(fetchedArtworkDetail(artworkObj))
+      })
+  }
+}
+
 export {
   setUserUsingToken,
   createUser,
   logInUser,
   fetchingInitialArtworks,
+  fetchingArtworkDetail,
 };

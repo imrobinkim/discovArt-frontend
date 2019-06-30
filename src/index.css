@@ -17,3 +17,96 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+/* --------- LogInForm ----------- */
+
+.login-form input {
+  appearance: none;
+  border-radius: 100px;
+  background-color: transparent;
+  border: .5px solid #D6CFC5;
+  font-size: 17px;
+  padding: 10px 15px;
+  font-weight: 100;
+  display: block;
+  color: #D6CFC5;
+}
+
+.login-form input:focus {
+    outline:none;
+}
+
+.login-form input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #D6CFC5;
+  color: #242224;
+}
+
+/* --------- SignUpPage ----------- */
+
+.signup-form input {
+  appearance: none;
+  border-radius: 100px;
+  background-color: transparent;
+  border: .5px solid #D6CFC5;
+  font-size: 17px;
+  padding: 10px 15px;
+  font-weight: 100;
+  display: block;
+  color: #D6CFC5;
+}
+
+.signup-form input:focus {
+    outline:none;
+}
+
+.signup-form input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #D6CFC5;
+  color: #242224;
+}
+
+
+/* --------- NavBar ----------- */
+
+.navbar {
+  margin: 20px;
+}
+
+.navbar a {
+  margin-left: 50px;
+  padding: 8px 0;
+  color: #D6CFC5;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 120%;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+.navbar .navbar-logo {
+  display: inline;
+  margin: 20px;
+  text-transform: none;
+  font-size: 400%;
+}
+
+.navbar-list {
+  float: right;
+  list-style: none;
+  margin: 20px;
+  /* margin-right: 20px; */
+}
+
+.navbar-list a.current,
+.navbar-list a:hover {
+  border-bottom: 1px solid #F14B31;
+}
+
+
+
+/* --------- ArtworksList ----------- */
+.artworks-list-div {
+  margin: 3% 10%;
+}

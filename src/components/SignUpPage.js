@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createUser } from '../../redux/actionCreators';
+import { createUser } from '../redux/actionCreators';
 
 class SignUpPage extends Component {
   state = {
@@ -25,7 +25,7 @@ class SignUpPage extends Component {
 
   render() {
     return(
-      <form className="sign-up-form" onSubmit={this.handleCreateUser}>
+      <form className="signup-form" onSubmit={this.handleCreateUser}>
         <label>
           First Name:
           <input type="text" name="first_name" placeholder="First name" onChange={this.handleChange} required />

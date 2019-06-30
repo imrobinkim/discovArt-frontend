@@ -7,6 +7,7 @@ import MainPage from './containers/MainPage';
 import LogInForm from './components/LogInForm';
 import SignUpPage from './components/SignUpPage';
 import CollectionPage from './containers/CollectionPage';
+import ArtworkPage from './containers/ArtworkPage';
 import { setUserUsingToken } from './redux/actionCreators';
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
           <Route exact path="/login" component={LogInForm} />
           <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/search" component={CollectionPage} />
+          <Route exact path="/artworks/:id" component={ArtworkPage} />
         </Switch>
       </Fragment>
     );
