@@ -19,6 +19,16 @@ code {
 }
 
 
+/* --------- Slider ----------- */
+.Slider {
+  margin: 5%;
+  width: 50%;
+  height: 50%;
+}
+
+
+
+
 /* --------- LogInForm ----------- */
 
 .login-form input {

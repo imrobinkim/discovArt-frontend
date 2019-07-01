@@ -12,7 +12,7 @@ class ArtworkPage extends Component {
   render() {
     // debugger
     return (
-      this.props.currentArtwork ? 
+      this.props.currentArtwork && this.props.currentArtwork.ObjectID === parseInt(this.props.match.params.id) ? 
       <div>
         <img src={this.props.currentArtwork.Images[0].ImageURLs.Large} alt={`Image of ${this.props.currentArtwork.Title}`}/>
       </div> : null
