@@ -20,13 +20,48 @@ code {
 
 
 /* --------- Slider ----------- */
-.Slider {
-  margin: 5%;
-  width: 50%;
-  height: 50%;
+li {
+  list-style-type: none;
 }
 
+.Slider {
+  
+  margin: 5%;
+  width: 50%;
+  /* height: 1000px; */
+}
 
+/* --------- SearchForm ----------- */
+.search-form {
+  text-align: center;
+}
+
+.search-form-div {display: inline-block;}
+
+.search-form input {
+  float: left;
+  appearance: none;
+  border-radius: 100px;
+  background-color: transparent;
+  border: .5px solid #D6CFC5;
+  font-size: 17px;
+  padding: 10px 15px;
+  font-weight: 100;
+  display: block;
+  color: #D6CFC5;
+}
+
+.search-form input[type="text"] {
+  width: 500px;
+}
+
+.search-form input[type="submit"] {
+  margin-left: 20px;
+}
+
+.search-form input:focus {
+    outline:none;
+}
 
 
 /* --------- LogInForm ----------- */
@@ -54,6 +89,11 @@ code {
 }
 
 /* --------- SignUpPage ----------- */
+.signup-form {
+    float: right;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
 
 .signup-form input {
   appearance: none;
@@ -76,7 +116,6 @@ code {
   background-color: #D6CFC5;
   color: #242224;
 }
-
 
 /* --------- NavBar ----------- */
 

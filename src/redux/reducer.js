@@ -14,6 +14,9 @@ const artworksListReducer = (oldState = [], action) => {
   switch (action.type) {
     case "FETCHED_INITIAL_ARTWORKS":
       return action.artworks
+    
+    case "FETCHED_ARTWORKS_BY_KEYWORD":
+      return action.artworks
 
     default:
       return oldState
@@ -29,6 +32,16 @@ const currentArtworkToShowReducer = (oldState = null, action) => {
       return oldState
   }
 }
+
+// const artworkSearchTermReducer = (oldState = '', action) => {
+//   switch (action.type) {
+//     case "FETCH_ARTWORK":
+//       return action.artwork 
+      
+//     default:
+//       return oldState
+//   }
+// }
 
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,

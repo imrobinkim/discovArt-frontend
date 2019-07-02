@@ -6,13 +6,13 @@ import SmartSlider from "react-smart-slider";
 function Slider() {
   const slidesArray = [
     {
-      url: "https://i.imgur.com/7u8i7L1.jpg"
+      url: "https://static.thewalters.org/images/PS1_37.1109_Fnt_DD_T13.jpg"
     },
     {
-      url: "https://i.imgur.com/E8gkF2f.jpg"
+      url: "https://static.thewalters.org/images/PS1_TL.2010.3.13_VwA_DD_T10.jpg"
     },
     {
-      url: "https://i.imgur.com/t2a1zLi.jpg",
+      url: "https://static.thewalters.org/images/PS1_37.38_Fnt_DD_T09.jpg",
 
       // Set this key, if you want to update style for specific slide caption
       customCaptionStyle: {

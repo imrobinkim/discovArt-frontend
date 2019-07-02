@@ -69,12 +69,30 @@ function fetchedInitialArtworks(artworks) {
   return { type: "FETCHED_INITIAL_ARTWORKS", artworks }
 }
 
+function fetchedArtworksByKeyword(artworks) {
+  return { type: "FETCHED_ARTWORKS_BY_KEYWORD", artworks }
+}
+
 function fetchingInitialArtworks() {
   return (dispatch) => {
     fetch(`${BASE_URL}/artworks/initial`)
       .then(res => res.json())
       .then(artworks => {
         dispatch(fetchedInitialArtworks(artworks.Items))
+      })
+  }
+}
+
+function fetchingArtworksBySearchTerm(keyword) {
+  return (dispatch) => {
+    fetch(`${BASE_URL}/artworks/bykeyword?keyword=${keyword}`)
+      .then(res => res.json())
+      .then(response => {
+        if (response.status !== 500) {
+          dispatch(fetchedArtworksByKeyword(response.Items))
+        } else {
+          console.log("No artworks by those search terms")
+        }
       })
   }
 }
@@ -99,5 +117,6 @@ export {
   createUser,
   logInUser,
   fetchingInitialArtworks,
+  fetchingArtworksBySearchTerm,
   fetchingArtworkDetail,
 };
