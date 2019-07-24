@@ -14,7 +14,7 @@ class ArtworkPage extends Component {
     return (
       this.props.currentArtwork && this.props.currentArtwork.ObjectID === parseInt(this.props.match.params.id) ? 
       <div>
-        <img src={this.props.currentArtwork.Images[0].ImageURLs.Large} alt={`Image of ${this.props.currentArtwork.Title}`}/>
+        <img src={this.props.currentArtwork.Images[0].ImageURLs.Large} alt={`${this.props.currentArtwork.Title}`}/>
         <p>{this.props.currentArtwork.Title}</p>
         <p>{this.props.currentArtwork.Creators[0].ConcatDisplayName}</p>
         <p>{this.props.currentArtwork.DateText}</p>

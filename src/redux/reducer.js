@@ -5,6 +5,9 @@ const currentUserReducer = (oldState = null, action) => {
     case "SET_CURRENT_USER":
       return action.payload
 
+    case "LOG_USER_OUT":
+      return null
+
     default:
       return oldState
   }

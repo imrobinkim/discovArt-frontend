@@ -33,6 +33,7 @@ function createUser(newUserData) {
       })
     }).then(res => res.json())
     .then(returnedData => {
+      debugger
       localStorage.setItem('token', returnedData['token'])
       dispatch(setCurrentUser(returnedData['user']))
     })
@@ -55,14 +56,19 @@ function logInUser(logInData) {
       })
     }).then(res => res.json())
     .then(returnedData => {
+      // debugger
       localStorage.setItem('token', returnedData['token'])
       dispatch(setCurrentUser(returnedData['user']))
     })
   }
 }
 
+function logUserOut() {
+  return { type: "LOG_USER_OUT" }
+}
+
 function setCurrentUser(userData) {
-  return { type: "SET_CURRENT_USER", payload: userData} 
+  return { type: "SET_CURRENT_USER", payload: userData } 
 }
 
 function fetchedInitialArtworks(artworks) {
@@ -116,6 +122,7 @@ export {
   setUserUsingToken,
   createUser,
   logInUser,
+  logUserOut,
   fetchingInitialArtworks,
   fetchingArtworksBySearchTerm,
   fetchingArtworkDetail,

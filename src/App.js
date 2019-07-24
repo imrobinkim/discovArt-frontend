@@ -13,6 +13,7 @@ import { setUserUsingToken } from './redux/actionCreators';
 class App extends Component {
   componentDidMount() {
     let token = localStorage.getItem('token');
+
     if (token) {
       this.props.setUserUsingToken(token)
     }
@@ -24,7 +25,9 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path="/" component={MainPage} />
-          <Route exact path="/login" component={LogInForm} />
+          <Route exact path="/login" render={() => {
+            return this.props.currentUser? <Redirect to="/" /> : <LogInForm />
+          }} />
           <Route exact path="/signup" component={SignUpPage} />
           <Route exact path="/search" component={CollectionPage} />
           <Route exact path="/artworks/:id" component={ArtworkPage} />
@@ -34,10 +37,16 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     setUserUsingToken: (token) => { dispatch(setUserUsingToken(token)) },
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

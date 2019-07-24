@@ -43,7 +43,7 @@ li {
   appearance: none;
   border-radius: 100px;
   background-color: transparent;
-  border: .5px solid #D6CFC5;
+  border: 1px solid #D6CFC5;
   font-size: 17px;
   padding: 10px 15px;
   font-weight: 100;
@@ -70,7 +70,7 @@ li {
   appearance: none;
   border-radius: 100px;
   background-color: transparent;
-  border: .5px solid #D6CFC5;
+  border: 1px solid #D6CFC5;
   font-size: 17px;
   padding: 10px 15px;
   font-weight: 100;
@@ -99,7 +99,7 @@ li {
   appearance: none;
   border-radius: 100px;
   background-color: transparent;
-  border: .5px solid #D6CFC5;
+  border: 1px solid #D6CFC5;
   font-size: 17px;
   padding: 10px 15px;
   font-weight: 100;
