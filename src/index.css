@@ -9,8 +9,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #242224;
-  color: #D6CFC5;
-  font-family: 'DM Sans', sans-serif;
+  color: #d6cfc5;
+  font-family: "DM Sans", sans-serif;
 }
 
 code {
@@ -18,14 +18,12 @@ code {
     monospace;
 }
 
-
 /* --------- Slider ----------- */
 li {
   list-style-type: none;
 }
 
 .Slider {
-  
   margin: 5%;
   width: 50%;
   /* height: 1000px; */
@@ -36,19 +34,21 @@ li {
   text-align: center;
 }
 
-.search-form-div {display: inline-block;}
+.search-form-div {
+  display: inline-block;
+}
 
 .search-form input {
   float: left;
   appearance: none;
   border-radius: 100px;
   background-color: transparent;
-  border: 1px solid #D6CFC5;
+  border: 1px solid #d6cfc5;
   font-size: 17px;
   padding: 10px 15px;
   font-weight: 100;
   display: block;
-  color: #D6CFC5;
+  color: #d6cfc5;
 }
 
 .search-form input[type="text"] {
@@ -60,9 +60,8 @@ li {
 }
 
 .search-form input:focus {
-    outline:none;
+  outline: none;
 }
-
 
 /* --------- LogInForm ----------- */
 
@@ -70,55 +69,54 @@ li {
   appearance: none;
   border-radius: 100px;
   background-color: transparent;
-  border: 1px solid #D6CFC5;
+  border: 1px solid #d6cfc5;
   font-size: 17px;
   padding: 10px 15px;
   font-weight: 100;
   display: block;
-  color: #D6CFC5;
+  color: #d6cfc5;
 }
 
 .login-form input:focus {
-    outline:none;
+  outline: none;
 }
 
 .login-form input[type="submit"]:hover {
   cursor: pointer;
-  background-color: #D6CFC5;
+  background-color: #d6cfc5;
   color: #242224;
 }
 
 /* --------- SignUpPage ----------- */
 .signup-form {
-    float: right;
-    margin-right: 10%;
-    margin-bottom: 10%;
+  float: right;
+  margin-right: 10%;
+  margin-bottom: 10%;
 }
 
 .signup-form input {
   appearance: none;
   border-radius: 100px;
   background-color: transparent;
-  border: 1px solid #D6CFC5;
+  border: 1px solid #d6cfc5;
   font-size: 17px;
   padding: 10px 15px;
   font-weight: 100;
   display: block;
-  color: #D6CFC5;
+  color: #d6cfc5;
 }
 
 .signup-form input:focus {
-    outline:none;
+  outline: none;
 }
 
 .signup-form input[type="submit"]:hover {
   cursor: pointer;
-  background-color: #D6CFC5;
+  background-color: #d6cfc5;
   color: #242224;
 }
 
 /* --------- NavBar ----------- */
-
 .navbar {
   margin: 20px;
 }
@@ -126,7 +124,7 @@ li {
 .navbar a {
   margin-left: 50px;
   padding: 8px 0;
-  color: #D6CFC5;
+  color: #d6cfc5;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 120%;
@@ -145,17 +143,46 @@ li {
   float: right;
   list-style: none;
   margin: 20px;
-  /* margin-right: 20px; */
 }
 
 .navbar-list a.current,
 .navbar-list a:hover {
-  border-bottom: 1px solid #F14B31;
+  border-bottom: 1px solid #f14b31;
 }
-
-
 
 /* --------- ArtworksList ----------- */
 .artworks-list-div {
   margin: 3% 10%;
+}
+
+/* --------- ArtworkCard ----------- */
+.artwork-card {
+  text-decoration: none;
+}
+
+.artwork-card img {
+  max-width: 300px;
+  max-height: 500px;
+}
+
+.artwork-card-default {
+  width: 300px;
+  height: 200px;
+  background: rgb(209, 170, 170);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artwork-card-default div {
+  color: white;
+}
+
+/* --------- ArtworkPage ----------- */
+.artwork-page {
+  margin: 3% 20%;
+}
+
+.artwork-page img {
+  max-width: 500px;
 }

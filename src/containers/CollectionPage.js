@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { fetchingInitialArtworks } from '../redux/actionCreators';
-import SearchForm from '../components/SearchForm';
-import ArtworksList from './ArtworksList';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { fetchingInitialArtworks } from "../redux/actionCreators";
+import SearchForm from "../components/SearchForm";
+import ArtworksList from "./ArtworksList";
 
 class CollectionPage extends Component {
   componentDidMount() {
@@ -15,14 +15,16 @@ class CollectionPage extends Component {
         <SearchForm />
         <ArtworksList />
       </Fragment>
-    )
+    );
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    fetchingInitialArtworks: () => { dispatch(fetchingInitialArtworks()) }
-  }
-}
+    fetchingInitialArtworks: () => {
+      dispatch(fetchingInitialArtworks());
+    }
+  };
+};
 
 export default connect(null, mapDispatchToProps)(CollectionPage);

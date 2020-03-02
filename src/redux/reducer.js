@@ -1,46 +1,47 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
+// Good practice to have sep. reducer for each resource to keep it more manageable visually.
 const currentUserReducer = (oldState = null, action) => {
   switch (action.type) {
     case "SET_CURRENT_USER":
-      return action.payload
+      return action.payload;
 
     case "LOG_USER_OUT":
-      return null
+      return null;
 
     default:
-      return oldState
+      return oldState;
   }
-}
+};
 
 const artworksListReducer = (oldState = [], action) => {
   switch (action.type) {
     case "FETCHED_INITIAL_ARTWORKS":
-      return action.artworks
-    
+      return action.artworks;
+
     case "FETCHED_ARTWORKS_BY_KEYWORD":
-      return action.artworks
+      return action.artworks;
 
     default:
-      return oldState
+      return oldState;
   }
-}
+};
 
 const currentArtworkToShowReducer = (oldState = null, action) => {
   switch (action.type) {
     case "FETCH_ARTWORK":
-      return action.artwork 
-      
+      return action.artwork;
+
     default:
-      return oldState
+      return oldState;
   }
-}
+};
 
 // const artworkSearchTermReducer = (oldState = '', action) => {
 //   switch (action.type) {
 //     case "FETCH_ARTWORK":
-//       return action.artwork 
-      
+//       return action.artwork
+
 //     default:
 //       return oldState
 //   }
@@ -50,6 +51,6 @@ const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   artworks: artworksListReducer,
   currentArtwork: currentArtworkToShowReducer
-})
+});
 
 export default rootReducer;
