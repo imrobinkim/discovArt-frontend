@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { fetchingMoreArtworks } from "../redux/actionCreators";
 import StackGrid from "react-stack-grid";
 import ArtworkCard from "../components/ArtworkCard";
 
 class ArtworksList extends Component {
+  handleLoadMore = () => {
+    this.props.fetchingMoreArtworks(
+      this.props.currentArtworksPage,
+      this.props.searchTerm
+    );
+  };
+
   artworksToRender() {
     return this.props.artworks.map(artwork => {
       return (
@@ -16,7 +24,7 @@ class ArtworksList extends Component {
 
   render() {
     return (
-      <div className="artworks-list-div">
+      <div id="artworks-list">
         <StackGrid
           monitorImagesLoaded={true}
           columnWidth={300}
@@ -25,6 +33,9 @@ class ArtworksList extends Component {
         >
           {this.artworksToRender()}
         </StackGrid>
+        <div className="load-more-artworks">
+          <button onClick={this.handleLoadMore}>Load More</button>
+        </div>
       </div>
     );
   }
@@ -32,8 +43,18 @@ class ArtworksList extends Component {
 
 const mapStateToProps = state => {
   return {
-    artworks: state.artworks
+    artworks: state.artworks,
+    searchTerm: state.searchTerm,
+    currentArtworksPage: state.currentArtworksPage
   };
 };
 
-export default connect(mapStateToProps)(ArtworksList);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchingMoreArtworks: (currentPage, searchTerm) => {
+      dispatch(fetchingMoreArtworks(currentPage, searchTerm));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArtworksList);

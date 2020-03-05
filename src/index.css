@@ -18,15 +18,31 @@ code {
     monospace;
 }
 
+/* --------- MainPage ----------- */
+.main-page {
+  display: flex;
+  align-items: center;
+}
+
+.slider-div {
+  flex: 1;
+}
+
+.login-form-div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 /* --------- Slider ----------- */
 li {
   list-style-type: none;
 }
 
 .Slider {
-  margin: 5%;
+  margin-left: 8%;
+  margin-top: 5%;
   width: 50%;
-  /* height: 1000px; */
 }
 
 /* --------- SearchForm ----------- */
@@ -63,7 +79,19 @@ li {
   outline: none;
 }
 
+.search-form input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #d6cfc5;
+  color: #242224;
+}
+
 /* --------- LogInForm ----------- */
+.login {
+  max-width: 350px;
+  display: flex;
+  margin: auto;
+  flex-flow: column;
+}
 
 .login-form input {
   appearance: none;
@@ -72,13 +100,21 @@ li {
   border: 1px solid #d6cfc5;
   font-size: 17px;
   padding: 10px 15px;
+  width: 20rem;
   font-weight: 100;
   display: block;
   color: #d6cfc5;
+  margin: 5px auto;
 }
 
 .login-form input:focus {
   outline: none;
+}
+
+.login-form input[type="submit"] {
+  margin-top: 1rem;
+  float: right;
+  width: 8rem;
 }
 
 .login-form input[type="submit"]:hover {
@@ -87,11 +123,23 @@ li {
   color: #242224;
 }
 
+/* --------- Login Page ----------- */
+.sign-up-option {
+  margin: 1rem auto;
+}
+
+.sign-up-option a {
+  color: #d6cfc5;
+  text-decoration: none;
+  font-weight: 800;
+}
+
 /* --------- SignUpPage ----------- */
-.signup-form {
-  float: right;
-  margin-right: 10%;
-  margin-bottom: 10%;
+.signup-page {
+  max-width: 350px;
+  display: flex;
+  margin: auto;
+  flex-flow: column;
 }
 
 .signup-form input {
@@ -101,13 +149,20 @@ li {
   border: 1px solid #d6cfc5;
   font-size: 17px;
   padding: 10px 15px;
+  width: 20rem;
   font-weight: 100;
   display: block;
   color: #d6cfc5;
+  margin: 5px auto;
 }
 
 .signup-form input:focus {
   outline: none;
+}
+
+.signup-form input[type="submit"] {
+  margin-top: 2rem;
+  width: 22rem;
 }
 
 .signup-form input[type="submit"]:hover {
@@ -151,8 +206,32 @@ li {
 }
 
 /* --------- ArtworksList ----------- */
-.artworks-list-div {
+#artworks-list {
   margin: 3% 10%;
+}
+
+.load-more-artworks {
+  display: flex;
+  justify-content: center;
+}
+
+.load-more-artworks button {
+  appearance: none;
+  border-radius: 100px;
+  background-color: transparent;
+  border: 1px solid #d6cfc5;
+  font-size: 17px;
+  padding: 10px 30px;
+  font-weight: 100;
+  display: block;
+  color: #d6cfc5;
+  margin: 2rem auto;
+}
+
+.load-more-artworks button:hover {
+  cursor: pointer;
+  background-color: #d6cfc5;
+  color: #242224;
 }
 
 /* --------- ArtworkCard ----------- */
@@ -172,6 +251,7 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .artwork-card-default div {
@@ -180,9 +260,19 @@ li {
 
 /* --------- ArtworkPage ----------- */
 .artwork-page {
-  margin: 3% 20%;
+  margin: 10px 20%;
 }
 
 .artwork-page img {
   max-width: 500px;
+}
+
+.artwork-pic-default {
+  width: 500px;
+  height: 600px;
+  background: rgb(209, 170, 170);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

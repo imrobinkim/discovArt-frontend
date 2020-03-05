@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:3000/api/v1";
 
+// -------- Users --------- //
 function setUserUsingToken(token) {
   return dispatch => {
     fetch(`${BASE_URL}/profile`, {
@@ -72,34 +73,56 @@ function setCurrentUser(userData) {
   return { type: "SET_CURRENT_USER", payload: userData };
 }
 
-function fetchedInitialArtworks(artworks) {
-  return { type: "FETCHED_INITIAL_ARTWORKS", artworks };
+// -------- Pagination --------- //
+function nextPage(currentPage) {
+  return { type: "NEXT_PAGE", currentPage };
 }
 
-function fetchedArtworksByKeyword(artworks) {
-  return { type: "FETCHED_ARTWORKS_BY_KEYWORD", artworks };
+function clearPage() {
+  return { type: "CLEAR_PAGE" };
 }
 
-function fetchingInitialArtworks() {
+// -------- Search Term --------- //
+function updateSearchTerm(newSearchTerm) {
+  return { type: "UPDATE_SEARCH_TERM", newSearchTerm };
+}
+
+// -------- Artworks --------- //
+function fetchedArtworks(artworks) {
+  return { type: "FETCHED_ARTWORKS", artworks };
+}
+
+function fetchingArtworks(keyword = null) {
   return dispatch => {
-    fetch(`${BASE_URL}/artworks/initial`)
+    let baseUrl = `${BASE_URL}/artworks`;
+    let url = keyword ? baseUrl + `?keyword=${keyword}` : baseUrl;
+    fetch(url)
       .then(res => res.json())
       .then(artworks => {
-        dispatch(fetchedInitialArtworks(artworks.records));
+        dispatch(fetchedArtworks(artworks.records));
       });
   };
 }
 
 function fetchingArtworksBySearchTerm(keyword) {
   return dispatch => {
-    fetch(`${BASE_URL}/artworks/bykeyword?keyword=${keyword}`)
+    dispatch(updateSearchTerm(keyword));
+    dispatch(clearPage());
+    dispatch(fetchingArtworks(keyword));
+  };
+}
+
+function fetchingMoreArtworks(currentPage, keyword) {
+  return dispatch => {
+    dispatch(nextPage(currentPage)); //updates state for currentArtworksPage
+
+    let baseUrl = `${BASE_URL}/artworks?page=${currentPage + 1}`;
+    let url = keyword ? baseUrl + `&keyword=${keyword}` : baseUrl;
+
+    fetch(url)
       .then(res => res.json())
-      .then(response => {
-        if (response.status !== 500) {
-          dispatch(fetchedArtworksByKeyword(response.records));
-        } else {
-          console.log("No artworks by those search terms");
-        }
+      .then(artworks => {
+        dispatch(fetchedArtworks(artworks.records));
       });
   };
 }
@@ -124,7 +147,9 @@ export {
   createUser,
   logInUser,
   logUserOut,
-  fetchingInitialArtworks,
+  clearPage,
   fetchingArtworksBySearchTerm,
+  fetchingArtworks,
+  fetchingMoreArtworks,
   fetchingArtworkDetail
 };

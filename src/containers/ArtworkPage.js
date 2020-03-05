@@ -12,10 +12,17 @@ class ArtworkPage extends Component {
     return this.props.currentArtwork &&
       this.props.currentArtwork.id === parseInt(this.props.match.params.id) ? (
       <div className="artwork-page">
-        <img
-          src={this.props.currentArtwork.primaryimageurl}
-          alt={`${this.props.currentArtwork.title}`}
-        />
+        {this.props.currentArtwork.primaryimageurl ? (
+          <img
+            src={this.props.currentArtwork.primaryimageurl}
+            alt={`${this.props.currentArtwork.title}`}
+          />
+        ) : (
+          <div className="artwork-pic-default">
+            <div>{this.props.currentArtwork.title}</div>
+          </div>
+        )}
+
         <h3>{this.props.currentArtwork.title}</h3>
         <p>{this.props.currentArtwork.people[0].name}</p>
         <p>{this.props.currentArtwork.dated}</p>

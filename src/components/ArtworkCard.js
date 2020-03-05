@@ -8,7 +8,7 @@ const ArtworkCard = ({ artwork }) => {
         <img src={artwork.primaryimageurl} alt={artwork.title} />
       ) : (
         <div className="artwork-card-default">
-          <div>No Image</div>
+          <div>{artwork.title}</div>
         </div>
       )}
     </Link>
