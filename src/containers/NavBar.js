@@ -4,9 +4,8 @@ import { connect } from "react-redux";
 import { logUserOut } from "../redux/actionCreators";
 
 class NavBar extends Component {
-  logUserOut() {
+  handleUserLogOut() {
     this.props.logUserOut();
-    localStorage.setItem("token", "");
   }
 
   render() {
@@ -19,13 +18,10 @@ class NavBar extends Component {
           <NavLink to="/browse" activeClassName="current">
             Collection
           </NavLink>
-          <Link to="/favorites" activeClassName="current">
+          <NavLink to="/favorites" activeClassName="current">
             Favorites
-          </Link>
-          {/* <NavLink to="/map" activeClassName="current">
-            Map
-          </NavLink> */}
-          <Link to="/" onClick={() => this.logUserOut()}>
+          </NavLink>
+          <Link to="/" onClick={() => this.handleUserLogOut()}>
             Log Out
           </Link>
         </div>
@@ -39,9 +35,6 @@ class NavBar extends Component {
           <NavLink to="/browse" activeClassName="current">
             Collection
           </NavLink>
-          {/* <NavLink to="/map" activeClassName="current">
-            Map
-          </NavLink> */}
           <NavLink to="/login" activeClassName="current">
             Log In
           </NavLink>

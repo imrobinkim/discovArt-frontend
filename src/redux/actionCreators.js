@@ -1,6 +1,7 @@
 const BASE_URL = "http://localhost:3000/api/v1";
 
 // -------- Users --------- //
+// Sets current logged in user when page is refreshed (aka retrieved from localStorage token).
 function setUserUsingToken(token) {
   return dispatch => {
     fetch(`${BASE_URL}/profile`, {
@@ -11,61 +12,20 @@ function setUserUsingToken(token) {
     })
       .then(res => res.json())
       .then(returnedData => {
-        console.log("Logged In:", returnedData.user.first_name);
         dispatch(setCurrentUser(returnedData.user));
       });
   };
 }
 
-function createUser(newUserData) {
+function logUserIn(returnedData) {
   return dispatch => {
-    fetch(`${BASE_URL}/users`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        user: {
-          first_name: newUserData.first_name,
-          last_name: newUserData.last_name,
-          email: newUserData.email,
-          password: newUserData.password
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(returnedData => {
-        localStorage.setItem("token", returnedData["token"]);
-        dispatch(setCurrentUser(returnedData["user"]));
-      });
-  };
-}
-
-function logInUser(logInData) {
-  return dispatch => {
-    fetch(`${BASE_URL}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        user: {
-          email: logInData.email,
-          password: logInData.password
-        }
-      })
-    })
-      .then(res => res.json())
-      .then(returnedData => {
-        localStorage.setItem("token", returnedData["token"]);
-        dispatch(setCurrentUser(returnedData["user"]));
-      });
+    localStorage.setItem("token", returnedData["token"]);
+    dispatch(setCurrentUser(returnedData["user"]));
   };
 }
 
 function logUserOut() {
+  localStorage.removeItem("token");
   return { type: "LOG_USER_OUT" };
 }
 
@@ -143,9 +103,9 @@ function fetchingArtworkDetail(artworkId) {
 }
 
 export {
+  BASE_URL,
   setUserUsingToken,
-  createUser,
-  logInUser,
+  logUserIn,
   logUserOut,
   clearPage,
   fetchingArtworksBySearchTerm,

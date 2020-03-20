@@ -1,6 +1,8 @@
 /* dark background color: #242224 */
 /* light text color: #D6CFC5 */
+/* red highlights & error color: #f14b31 */
 
+/* --------- General/Global ----------- */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -18,20 +20,41 @@ code {
     monospace;
 }
 
+/* Usually under input tags */
+.error {
+  color: #f14b31;
+  font-size: 12px;
+  margin: -2px auto 6px 4px;
+}
+
 /* --------- MainPage ----------- */
 .main-page {
   display: flex;
   align-items: center;
 }
 
-.slider-div {
-  flex: 1;
-}
-
-.login-form-div {
+.main-page__right {
   flex: 1;
   display: flex;
   justify-content: center;
+}
+
+.main-page__welcome {
+  margin-bottom: 2rem;
+  font-size: 20px;
+}
+
+.main-page__favorites {
+  text-decoration: none;
+  color: #d6cfc5;
+}
+
+.main-page__favorites:hover {
+  border-bottom: 1px solid #f14b31;
+}
+
+.slider-div {
+  flex: 1;
 }
 
 /* --------- Slider ----------- */
@@ -85,12 +108,18 @@ li {
   color: #242224;
 }
 
-/* --------- LogInForm ----------- */
-.login {
+/* --------- LoginPage ----------- */
+.login-page {
   max-width: 350px;
   display: flex;
   margin: auto;
   flex-flow: column;
+}
+
+/* --------- LoginForm ----------- */
+.login-form {
+  display: flex;
+  flex-direction: column;
 }
 
 .login-form input {
@@ -123,7 +152,7 @@ li {
   color: #242224;
 }
 
-/* --------- Login Page ----------- */
+/* --------- LoginPage ----------- */
 .sign-up-option {
   margin: 1rem auto;
 }
@@ -275,4 +304,11 @@ li {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+/* --------- FavoritesPage ----------- */
+.favorites-page {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
