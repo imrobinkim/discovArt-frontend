@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #242224;
+  background-color: #000000;
   color: #d6cfc5;
   font-family: "DM Sans", sans-serif;
 }
@@ -27,6 +27,32 @@ code {
   margin: -2px auto 6px 4px;
 }
 
+/* --------- Breakpoints & Media queries ----------- */
+/* (default)	Mobile-portrait
+min-width: 480px	Mobile-landscape (and larger)
+min-width: 768px	Tablet-portrait (and larger)
+min-width: 992px	Tablet-landscape (and larger)
+min-width: 1200px	Laptops (and larger) */
+
+/* Apply styles on 768.02px and above */
+/* 768.02px so that iPad displays according to query specified with max-width: 768px  */
+@media screen and (min-width: 768.02px) {
+  .hide-on-larger {
+    display: none !important;
+  }
+}
+
+/* Apply styles on 768px and below */
+@media screen and (max-width: 768px) and (min-width: 0px) {
+  .hide-on-smaller {
+    display: none !important;
+  }
+
+  .main-page {
+    flex-direction: column;
+  }
+}
+
 /* --------- MainPage ----------- */
 .main-page {
   display: flex;
@@ -37,6 +63,11 @@ code {
   flex: 1;
   display: flex;
   justify-content: center;
+  margin-top: 30px;
+}
+
+.main-page__logged-in {
+  text-align: center;
 }
 
 .main-page__welcome {
@@ -68,6 +99,13 @@ li {
   width: 50%;
 }
 
+@media screen and (max-width: 768px) and (min-width: 0px) {
+  .Slider {
+    margin-left: 0;
+    width: 90%;
+  }
+}
+
 /* --------- SearchForm ----------- */
 .search-form {
   text-align: center;
@@ -91,11 +129,11 @@ li {
 }
 
 .search-form input[type="text"] {
-  width: 500px;
+  min-width: 300px;
 }
 
 .search-form input[type="submit"] {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .search-form input:focus {
@@ -129,7 +167,7 @@ li {
   border: 1px solid #d6cfc5;
   font-size: 17px;
   padding: 10px 15px;
-  width: 20rem;
+  width: 18rem;
   font-weight: 100;
   display: block;
   color: #d6cfc5;
@@ -202,36 +240,57 @@ li {
 
 /* --------- NavBar ----------- */
 .navbar {
-  margin: 20px;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.navbar a {
+.navbar .navbar-logo {
+  display: inline;
+  margin: 10px;
+  text-transform: none;
+  font-size: 300%;
+}
+
+.navbar a,
+.navbar__list a {
   margin-left: 50px;
   padding: 8px 0;
   color: #d6cfc5;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 120%;
+  font-size: 110%;
   border-bottom: 1px solid transparent;
   transition: border-bottom 0.2s;
 }
 
-.navbar .navbar-logo {
-  display: inline;
-  margin: 20px;
-  text-transform: none;
-  font-size: 400%;
-}
-
-.navbar-list {
-  float: right;
+.navbar__list {
   list-style: none;
   margin: 20px;
 }
 
-.navbar-list a.current,
-.navbar-list a:hover {
+.navbar__list a.current,
+.navbar__list a:hover {
   border-bottom: 1px solid #f14b31;
+}
+
+.navbar__bars-icon {
+  font-size: 25px;
+  float: right;
+  cursor: pointer;
+}
+
+.navbar__expanded {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  font-size: 80%;
+  margin: -25px 25px 20px;
+}
+
+.navbar__expanded--hidden {
+  display: none;
 }
 
 /* --------- ArtworksList ----------- */

@@ -1,15 +1,14 @@
 import React from "react";
 import SmartSlider from "react-smart-slider";
 
-// import "./styles.css";
-
 function Slider() {
   const slidesArray = [
     {
       url: "https://static.thewalters.org/images/PS1_37.1109_Fnt_DD_T13.jpg"
     },
     {
-      url: "https://static.thewalters.org/images/PS1_TL.2010.3.13_VwA_DD_T10.jpg"
+      url:
+        "https://static.thewalters.org/images/PS1_TL.2010.3.13_VwA_DD_T10.jpg"
     },
     {
       url: "https://static.thewalters.org/images/PS1_37.38_Fnt_DD_T09.jpg",

@@ -28,7 +28,7 @@ class SearchForm extends Component {
             placeholder="Search by keyword"
             onChange={this.handleChange}
           />
-          <input type="submit" value="Search" />
+          {/* <input type="submit" value="Search" /> */}
         </div>
       </form>
     );
