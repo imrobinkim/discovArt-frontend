@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class FavoritesPage extends Component {
+  // TODO: Feature - show favorited artworks
   render() {
     return (
       <div className="favorites-page">

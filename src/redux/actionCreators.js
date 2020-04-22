@@ -1,8 +1,9 @@
 const BASE_URL = "http://localhost:3000/api/v1";
 
 // -------- Users --------- //
-// Sets current logged in user when page is refreshed (aka retrieved from localStorage token).
-function setUserUsingToken(token) {
+// Use to set current logged in user when page is refreshed (aka retrieved from localStorage token).
+// Also use when you need to refresh user data in redux store.
+function refreshUser(token) {
   return dispatch => {
     fetch(`${BASE_URL}/profile`, {
       method: "GET",
@@ -102,14 +103,32 @@ function fetchingArtworkDetail(artworkId) {
   };
 }
 
+function favoritingArtwork(artwork, user) {
+  let data = { artwork, user };
+  let params = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  };
+
+  return dispatch => {
+    fetch(`${BASE_URL}/favorite_artwork`, params).then(() => {
+      dispatch(refreshUser(localStorage.getItem("token"))); // refresh user to update favorites real-time.
+    });
+  };
+}
+
 export {
   BASE_URL,
-  setUserUsingToken,
+  refreshUser,
   logUserIn,
   logUserOut,
   clearPage,
   fetchingArtworksBySearchTerm,
   fetchingArtworks,
   fetchingMoreArtworks,
-  fetchingArtworkDetail
+  fetchingArtworkDetail,
+  favoritingArtwork
 };

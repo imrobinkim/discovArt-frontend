@@ -9,14 +9,14 @@ import SignUpPage from "./containers/SignUpPage";
 import CollectionPage from "./containers/CollectionPage";
 import FavoritesPage from "./containers/FavoritesPage";
 import ArtworkPage from "./containers/ArtworkPage";
-import { setUserUsingToken } from "./redux/actionCreators";
+import { refreshUser } from "./redux/actionCreators";
 
 class App extends Component {
   componentDidMount() {
     let token = localStorage.getItem("token");
 
     if (token && token !== "undefined") {
-      this.props.setUserUsingToken(token);
+      this.props.refreshUser(token);
     }
   }
 
@@ -45,8 +45,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setUserUsingToken: token => {
-      dispatch(setUserUsingToken(token));
+    refreshUser: token => {
+      dispatch(refreshUser(token));
     }
   };
 };

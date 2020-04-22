@@ -167,7 +167,7 @@ li {
   border: 1px solid #d6cfc5;
   font-size: 17px;
   padding: 10px 15px;
-  width: 18rem;
+  width: 20rem;
   font-weight: 100;
   display: block;
   color: #d6cfc5;
@@ -325,6 +325,7 @@ li {
 /* --------- ArtworkCard ----------- */
 .artwork-card {
   text-decoration: none;
+  position: absolute;
 }
 
 .artwork-card img {
@@ -332,7 +333,7 @@ li {
   max-height: 500px;
 }
 
-.artwork-card-default {
+.artwork-card__default {
   width: 300px;
   height: 200px;
   background: rgb(209, 170, 170);
@@ -342,13 +343,37 @@ li {
   text-align: center;
 }
 
-.artwork-card-default div {
+.artwork-card__default div {
   color: white;
+}
+
+/* layer to show like button on hover over artwork card */
+.artwork-card--hovered {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgb(136, 102, 102);
+  transition: 0.3s;
+  opacity: 0.7;
+}
+
+/* heart icon/button */
+.artwork-card__heart {
+  font-size: 40px;
+  color: #d6cfc5;
+  position: absolute;
+  /* center heart icon */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* --------- ArtworkPage ----------- */
 .artwork-page {
-  margin: 10px 20%;
+  margin: 10px 10%;
 }
 
 .artwork-page img {
@@ -365,6 +390,16 @@ li {
   text-align: center;
 }
 
+@media screen and (max-width: 768px) and (min-width: 0px) {
+  .artwork-page img {
+    width: 90%;
+  }
+
+  .artwork-pic-default {
+    width: 90%;
+    height: 200px;
+  }
+}
 /* --------- FavoritesPage ----------- */
 .favorites-page {
   display: flex;
